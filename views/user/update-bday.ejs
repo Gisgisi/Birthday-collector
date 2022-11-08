@@ -1,0 +1,34 @@
+<h1>It's <%= Birthday.name %>'s Birthday! </h1>
+<form method="POST" action="">
+    <label>Name<input name="name" type="text" value="<%= Birthday.name %> "></label>
+    <label>Date<input name="date" type="text" value="<%= Birthday.date %> "></label>
+    <label>Relationship<input name="relationship" type="text" valuse="<%= Birthday.relationship %> "></label>
+    <label>Gender<input name="gender" type="text" value="<%= Birthday.gender %>"></label>
+    <button type="submit">Add</button>
+</form>
+
+<h1>Let's create a birthday!</h1>
+<p>Make sure you provide the right details</p>
+<form method="POST" action="/profile/<%= username %>/addnew">
+    <label>Name <input name="name" type="text" value="<%= Birthday.name %> "></label>
+    <label>Date <input name="date" type="date" value="<%= Birthday.date %>"></label>
+    <label for="relationship" value="<%= Birthday.relationship %>">Relationship<label>
+            <select id="relationship" name="relationship ">
+                <option>Spouse</option>
+                <option>Parent</option>
+                <option>Freiend</option>
+                <option>Relative</option>
+                <option>Co-worker</option>
+                <option>Manager/boss</option>
+                <option>Sibling</option>
+                <option>Acquaintances</option>
+            </select>
+            <label for="gender" value="<%= Birthday.gender %>">Gender </label>
+            <select id="gender" name="gender ">
+                <option>Female</option>
+                <option>Male</option>
+                <option>Neutral</option>
+            </select>
+            <label>Note <input name="note" type="text" value="<%= Birthday.note %>"></label>
+            <button type="submit">Add</button>
+</form>

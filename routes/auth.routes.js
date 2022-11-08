@@ -18,11 +18,11 @@ router.get("/signup", (req, res) => {
   router.get("/profile/:username", Logged, async (req, res) => {
     try {
       const existingUser = await User.findOne({username:req.params.username} )
-      res.render(`user/profile`, { existingUser })
+      res.render(`user/profile`, { username: existingUser.username })
     } catch (error) { console.log(error) }
-  })
+  });
   
-  User.find
+
   /* Post data signup page */
   router.post("/signup", async (req, res) => {
     try {
@@ -43,8 +43,7 @@ router.get("/signup", (req, res) => {
         res.render("auth/signup", { errorMessage: "user already exists" })
       }
     }
-  })
-  
+  });
   
   /* Post data login page */
   router.post("/login", async (req, res) => {
@@ -58,10 +57,8 @@ router.get("/signup", (req, res) => {
       }
       else {
         if (bcrypt.compareSync(password, existingUser.password)) {
-           
-          console.log('SESSION =====> ', req.session);
+
           req.session.User = existingUser
-          console.log('SESSION =====> after', req.session)
           res.redirect(`/profile/${existingUser.username}`)
   
         } else {
@@ -72,7 +69,17 @@ router.get("/signup", (req, res) => {
     catch (error) {
       console.log(error)
     }
-  })
+  });
   
+
+  router.get('/logout', (req, res, next) => {
+    req.session.destroy(err => {
+        if (err) {
+            next(err)
+        }
+        res.redirect('/login')
+    })
+})
+
   module.exports = router;
   

@@ -9,9 +9,12 @@
 </head>
 <body>
     <h2>Profile</h2>
-<a href="">Logout</a>
-<p>Welcome!<%= existingUser.username %></p>
-<button><a href='newBday'>Add a birthday!</a></button>
+    <a href="/logout">
+        <button>Logout</button>
+    </a>
+
+<p>Welcome!<%= username %></p>
+<button><a href="/profile/<%= username %>/addnew">Add a birthday!</a></button>
 <p ></p>
     
 </body>

@@ -1,0 +1,25 @@
+<h1>Let's create a birthday!</h1>
+<p>Make sure you provide the right details</p>
+<form method="POST" action="/profile/<%= username %>/addnew">
+    <label>Name <input name="name" type="text"></label>
+    <label>Date <input name="date" type="date"></label>
+    <label for="relationship">Relationship<label>
+            <select id="relationship" name="relationship ">
+                <option>Spouse</option>
+                <option>Parent</option>
+                <option>Freiend</option>
+                <option>Relative</option>
+                <option>Co-worker</option>
+                <option>Manager/boss</option>
+                <option>Sibling</option>
+                <option>Acquaintances</option>
+            </select>
+            <label for="gender">Gender </label>
+            <select id="gender" name="gender ">
+                <option>Female</option>
+                <option>Male</option>
+                <option>Neutral</option>
+            </select>
+            <label>Note <input name="note" type="text"></label>
+            <button type="submit">Add</button>
+</form>

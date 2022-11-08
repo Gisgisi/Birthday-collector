@@ -3,22 +3,19 @@ const { Schema, model } = require('mongoose')
 const BdaySchema = new Schema({
     name: {
         type: String,
-        required
+        required: true,
     },
     birthday: {
-        type: string,
-        format: date,
-        required,
+        type: Date,
+        required: true,
     },
     relationship: {
         type: String,
-        required,
-        enum: ['Spouse', 'Parent', 'sibling', 'realtive', 'friend', 'co-worker', 'manager/boss', 'acquaintances']
+        required: true,
     },
     gender: {
         type: String,
-        required,
-        enum: ['male', 'female', 'undefined']
+        required: true,
     },
     note: String,
 });
