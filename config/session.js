@@ -27,7 +27,7 @@ module.exports = app => {
         maxAge: 60000 * 12
       },
       store: MongoStore.create({
-        mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost/birthday-collector'
+        mongoUrl: process.env.MONGODB_URI || 'mongodb+srv://carmen:carmen@cluster0.uab9mzj.mongodb.net/test'
  
         // ttl => time to live
         // ttl: 60 * 60 * 24 // 60sec * 60min * 24h => 1 day
