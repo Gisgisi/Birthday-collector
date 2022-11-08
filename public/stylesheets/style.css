@@ -4,12 +4,24 @@ body {
   background-image: url("/images/BG.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+
 }
 
+.singup{ display: flex; 
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+#singupform{
+    display: flex; 
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
 a {
   color: #00b7ff;
 }
 
 h2 {
-  color: #00b7ff;
+  color:aquamarine;
 }

@@ -1,9 +1,10 @@
-<h1>Start to build your collection?</h1>
+<div class="singup"  > <h1>Start to build your collection?</h1>
 <p>SignUp</p>
-<form method="POST" action="/signup">
-    <label>Username<input name="username" type="text" required></label>
-    <label>Email<input name="email" type="text" required></label>
-    <label>Password<input name="password" type="text" required></label>
+<form id="singupform"  method="POST" action="/signup">
+
+    <label>Username<input name=" username " type="text" required></label>
+    <label>Email<input name=" email " type="text" required></label>
+    <label>Password<input name=" password " type="text" required></label>
     <button type="submit">SignUp</button>
 </form>
 <p>Already signed up?<a href="/login">Login here!</a></p>
@@ -12,3 +13,4 @@
         <%= errorMessage%>
     </p>
     <% } %>
+</div>
