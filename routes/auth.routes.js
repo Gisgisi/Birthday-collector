@@ -15,13 +15,14 @@ router.get("/signup", (req, res) => {
   });
   
   /* GET profile page */
-  router.get("/profile/:id", Logged, async (req, res) => {
+  router.get("/profile/:username", Logged, async (req, res) => {
     try {
-      const existingUser = await User.findOne({ username: req.params.id })
+      const existingUser = await User.findOne({username:req.params.username} )
       res.render(`user/profile`, { existingUser })
     } catch (error) { console.log(error) }
   })
   
+  User.find
   /* Post data signup page */
   router.post("/signup", async (req, res) => {
     try {

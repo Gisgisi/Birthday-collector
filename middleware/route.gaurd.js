@@ -1,10 +1,10 @@
 // middleware/route-guard.js
 
-const Logged = (req, res) => {
+const Logged = (req, res, next) => {
   if (req.session.User) {
-    res.redirect('/profile/:id')    
-  } else
-  res.redirect('/login');
+    next()
+  }else
+  res.redirect('/login');  
 }
 module.exports = {
   Logged
