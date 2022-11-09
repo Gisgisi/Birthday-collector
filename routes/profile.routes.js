@@ -8,20 +8,20 @@ const { Logged } = require('../middleware/route.gaurd');
 
 /*Get the add new birthday page */
 router.get('/profile/:username/addnew', async (req, res) => {
-   try{
-    const existingUser = await User.findOne({ username: req.params.username })
-    res.render('user/new-bday', { username: existingUser.username })
-   } catch(error){ console.log(error) }
+    try {
+        const existingUser = await User.findOne({ username: req.params.username })
+        res.render('user/new-bday', { username: existingUser.username })
+    } catch (error) { console.log(error) }
 })
 
 
 /*Post the form in new birthday page an redirect to profile to see the list */
 router.post('/profile/:username/addnew', async (req, res) => {
-    const { name, date, relationship, gender, note } = req.body
+    const { name, birthday, relationship, gender, note } = req.body
     try {
         await Birthday.create({
             name: name,
-            birthday: date,
+            birthday: birthday,
             relationship: relationship,
             gender: gender,
             note: note,
@@ -33,23 +33,33 @@ router.post('/profile/:username/addnew', async (req, res) => {
 
 /*Get the detail page */
 router.get('/profile/:id/details', async (req, res) => {
-    const{id}= req.params
+    const { id } = req.params
     const currentBirthday = await Birthday.findById(id)
     console.log(currentBirthday)
-    res.render(`user/bday-detail`, { currentBirthday})
+    res.render(`user/bday-detail`, { currentBirthday })
 })
 
 
 /*Get the edit birthday page */
-router.get('/profile/:id/edit', async (req, res)=>{
-    const{id}= req.params
+router.get('/profile/:id/edit', async (req, res) => {
+    const { id } = req.params
     const currentBirthday = await Birthday.findById(id)
-    res.render('user/update-bday', {currentBirthday})
+    res.render('user/update-bday', { currentBirthday })
 })
 
 /*Post edit page */
 router.post('/profile/:id/edit', async (req, res) => {
-currentBirthday.put()
+    const { id } = req.params
+    const currentBirthday = await Birthday.findById(id)
+   await  Birthday.findByIdAndUpdate(currentBirthday.id, req.body)
+    res.redirect(`/profile/${req.params.id}/details`)
 })
+
+/* Get for deleting*/
+router.get('/profile/:id/delete', async (req, res) => {
+    const { id } = req.params
+    const currentBirthday = await Birthday.findById(id)
+    await Birthday.findByIdAndDelete(currentBirthday, req.params)
+    res.redirect(`/profile/${req.session.User.username}`)})
 
 module.exports = router;

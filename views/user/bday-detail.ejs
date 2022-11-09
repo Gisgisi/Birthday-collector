@@ -5,5 +5,6 @@
     <p>Who is a <%= currentBirthday.gender %>. </p>
     <p>and last but not least, you should be doing: <%= currentBirthday.note %>. </p>
 
-    <button><a href="/profile/<%= currentBirthday.id %>/Edit">update</a></button><span><button>delete</button></span>
+    <a href="/profile/<%= currentBirthday.id %>/edit">update</a>
+    <span><a href="/profile/<%= currentBirthday.id %>/delete" onclick="return confirm('Are you sure?')">delete</a></span>
 </body>

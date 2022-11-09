@@ -1,13 +1,13 @@
 <h1>Edit</h1>
 <p>Make sure the birthday details are all up to date!</p>
-<form method="POST" action="/profile/:id/edit">
+<form method="POST" action="/profile/<%= currentBirthday.id%>/edit">
     <label>Name <input name="name" type="text" value="<%= currentBirthday.name %> "></label>
     <label>Date <input name="birthday" type="date" value="<%= currentBirthday.birthday %>"></label>
     <label for="relationship" value="<%= currentBirthday.relationship %>">Relationship<label>
             <select id="relationship" name="relationship">
                 <option>Spouse</option>
                 <option>Parent</option>
-                <option>Freiend</option>
+                <option>Friend</option>
                 <option>Relative</option>
                 <option>Co-worker</option>
                 <option>Manager/boss</option>
