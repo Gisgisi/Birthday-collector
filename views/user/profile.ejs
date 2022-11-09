@@ -15,7 +15,14 @@
 
 <p>Welcome!<%= username %></p>
 <button><a href="/profile/<%= username %>/addnew">Add a birthday!</a></button>
-<p ></p>
+
+<p>
+    
+    <% birthdayList.forEach(item => { %>
+      <a href="/profile/<%= item._id %>/details"><strong><%= item.name %></strong></a>
+    <% }); %>
+      
+</p>
     
 </body>
 <script src="/js/script.js"></script>

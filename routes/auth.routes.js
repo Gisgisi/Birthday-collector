@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require('../models/User.model')
 const bcrypt = require('bcryptjs');
 const { Logged } = require('../middleware/route.gaurd');
+const Birthday = require('../models/Bday.model');
 
 /* GET login page */
 router.get("/login", (req, res) => {
@@ -17,8 +18,9 @@ router.get("/signup", (req, res) => {
   /* GET profile page */
   router.get("/profile/:username", Logged, async (req, res) => {
     try {
-      const existingUser = await User.findOne({username:req.params.username} )
-      res.render(`user/profile`, { username: existingUser.username })
+      const existingUser = await User.findOne({ username: req.params.username } )
+      const allBirthday = await Birthday.find({ user: req.session.User })
+      res.render(`user/profile`, { username: existingUser.username, birthdayList: allBirthday })
     } catch (error) { console.log(error) }
   });
   

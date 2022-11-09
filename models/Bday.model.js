@@ -1,4 +1,5 @@
-const { Schema, model } = require('mongoose')
+const { Schema, model } = require('mongoose');
+const User = require('./User.model');
 
 const BdaySchema = new Schema({
     name: {
@@ -17,7 +18,12 @@ const BdaySchema = new Schema({
         type: String,
         required: true,
     },
-    note: String,
+    note: { type: String },
+    user: {
+        type: Schema.ObjectId,
+        ref: 'User',
+        required: true,
+    }
 });
 
 const Birthday = model("Birthday", BdaySchema);

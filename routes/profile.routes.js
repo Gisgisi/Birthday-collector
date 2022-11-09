@@ -14,28 +14,42 @@ router.get('/profile/:username/addnew', async (req, res) => {
    } catch(error){ console.log(error) }
 })
 
-/*Post the form in new birthday page */
+
+/*Post the form in new birthday page an redirect to profile to see the list */
 router.post('/profile/:username/addnew', async (req, res) => {
     const { name, date, relationship, gender, note } = req.body
     try {
         await Birthday.create({
-            name,
-            date,
-            relationship,
-            gender,
-            note,
+            name: name,
+            birthday: date,
+            relationship: relationship,
+            gender: gender,
+            note: note,
+            user: req.session.User,
         })
-        res.redirect('/profile/:username/addnew')
+        res.redirect('/profile/' + req.session.User.username)
     } catch (error) { console.log(error) }
 })
 
 /*Get the detail page */
-router.get('/profile/:username/addnew', (req, res) => {
-    res.render(`user/bday-detail`, { existingUser })
+router.get('/profile/:id/details', async (req, res) => {
+    const{id}= req.params
+    const currentBirthday = await Birthday.findById(id)
+    console.log(currentBirthday)
+    res.render(`user/bday-detail`, { currentBirthday})
 })
 
 
-/*Post the form in new birthday page */
+/*Get the edit birthday page */
+router.get('/profile/:id/edit', async (req, res)=>{
+    const{id}= req.params
+    const currentBirthday = await Birthday.findById(id)
+    res.render('user/update-bday', {currentBirthday})
+})
 
+/*Post edit page */
+router.post('/profile/:id/edit', async (req, res) => {
+currentBirthday.put()
+})
 
 module.exports = router;
