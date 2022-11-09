@@ -1,0 +1,10 @@
+<h1>Detail for <%= currentBirthday.name%>'s birthday: </h1>
+<body>
+    <p>The birthday is on <%= currentBirthday.birthday %>. </p>
+    <p>This person is your <%= currentBirthday.relationship %>. </p>
+    <p>Who is a <%= currentBirthday.gender %>. </p>
+    <p>and last but not least, you should be doing: <%= currentBirthday.note %>. </p>
+
+    <a href="/profile/<%= currentBirthday.id %>/edit">update</a>
+    <span><a href="/profile/<%= currentBirthday.id %>/delete" onclick="return confirm('Are you sure?')">delete</a></span>
+</body>
