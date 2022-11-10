@@ -7,16 +7,16 @@ const { Logged } = require('../middleware/route.gaurd');
 //const existingUser = User.findOne({ username: req.params.username })
 
 /*Get the add new birthday page */
-router.get('/profile/:username/addnew', async (req, res) => {
+router.get('/profile/:username/new', async (req, res) => {
     try {
         const existingUser = await User.findOne({ username: req.params.username })
-        res.render('user/new-bday', { username: existingUser.username })
+        res.render('user/new', { username: existingUser.username })
     } catch (error) { console.log(error) }
 })
 
 
 /*Post the form in new birthday page an redirect to profile to see the list */
-router.post('/profile/:username/addnew', async (req, res) => {
+router.post('/profile/:username/new', async (req, res) => {
     const { name, birthday, relationship, gender, note } = req.body
     try {
         await Birthday.create({
@@ -32,11 +32,10 @@ router.post('/profile/:username/addnew', async (req, res) => {
 })
 
 /*Get the detail page */
-router.get('/profile/:id/details', async (req, res) => {
+router.get('/profile/:id/show', async (req, res) => {
     const { id } = req.params
     const currentBirthday = await Birthday.findById(id)
-    console.log(currentBirthday)
-    res.render(`user/bday-detail`, { currentBirthday })
+    res.render(`user/show`, { currentBirthday })
 })
 
 
@@ -44,7 +43,7 @@ router.get('/profile/:id/details', async (req, res) => {
 router.get('/profile/:id/edit', async (req, res) => {
     const { id } = req.params
     const currentBirthday = await Birthday.findById(id)
-    res.render('user/update-bday', { currentBirthday })
+    res.render('user/edit', { currentBirthday })
 })
 
 /*Post edit page */
@@ -52,7 +51,7 @@ router.post('/profile/:id/edit', async (req, res) => {
     const { id } = req.params
     const currentBirthday = await Birthday.findById(id)
    await  Birthday.findByIdAndUpdate(currentBirthday.id, req.body)
-    res.redirect(`/profile/${req.params.id}/details`)
+    res.redirect(`/profile/${req.params.id}/show`)
 })
 
 /* Get for deleting*/

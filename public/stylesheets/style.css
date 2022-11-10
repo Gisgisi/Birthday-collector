@@ -1,126 +1,167 @@
-body {
-  padding: 50px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-image: url("/images/BG.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
+*,:before,:after {box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box}
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  /*background: rgba(255, 150, 102, .3);*/
+  background: url('../images/pattern.jpg');
+  background-size: 100%;
+}
+
+.wrapper {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.header {
+  margin: 20px 0px;
+}
+
+.header img {
+  margin-right: 10px;
+  vertical-align: middle;
 }
 
 h1 {
-  padding: 10px;
+  display: inline-block;
+  vertical-align: middle;
   margin: 0;
-  color: #250f3a;
-  text-shadow: -1px 0 rgb(160, 174, 184), 0 1px rgb(160, 174, 184),
-    1px 0 rgb(160, 174, 184), 0 -1px rgb(160, 174, 184);
-  font-size: 42px;
+  color: #5a7a84;
+  text-shadow: 0 0 1px #fff;
+  font-size: 46px;
 }
 
-h2 {
-  color: rgb(0, 132, 194);
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+input, select {
+  border: 1px solid #dbdbdb;
+  min-width: 240px;
+  padding: 8px 4px;
+  font-size: 14px;
+  border-radius: 3px;
+  background: #ffffffa8;
+  font-family: 'Roboto', sans-serif;
 }
 
-hr {
+a {
+  text-decoration: none;
+  color: rgb(79 185 107);
+}
 
-  margin: 0;
-  width: 1300px;
+.profile h2 {
+  font-size: 32px;
+  color: #333
+}
+
+.content h2 {
+  color: #008001;
+  margin: 0 0 40px;
 }
 
 .profile {
   position: relative;
   display: flex;
   flex-direction: row;
-  gap: 1000px;
   align-items: center;
   justify-content: space-between;
 }
 
-#prohead {
-  color: aliceblue;
-  font-size: 32px;
+.add-profile {
+  position: absolute;
+  right: 30px;
+  top: 30px;
 }
 
-
-.box {
+.content {
+  position: relative;
   padding: 40px;
-  background: rgba(220, 225, 230, 0.651);
-  width: 60%;
+  background: #fef3efbd;
+  box-shadow: 0 0px 19px #00000024;
+}
+
+.center {
+  text-align: center;
+}
+
+.flex {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.boxPro {
-  margin-top: 10px;
-  padding: 30px;
-  background: rgba(220, 225, 230, 0.651);
-  width: 95%;
+.form-row {
+  padding-bottom: 15px;
+}
+
+.form-row label {
+  width: 30%;
+  display: inline-block;
+}
+
+.logout {
+  background-color: #FFE7E7;
+  background-position: 0 0;
+  border: 1px solid #D33A2C;
+  border-radius: 100px;
+  box-sizing: border-box;
+  color: #D33A2C;
+  cursor: pointer;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.labels{
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-align-items: center;
-width: 30px;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 6px 20px;
 }
 
-.newForm {
-  padding: 40px;
-  background: rgba(220, 225, 230, 0.493);
-  width: 40%;
-}
-
-
-#singupform {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-a {
+.btn {
+  background-color: #c2fbd7;
+  border-radius: 100px;
+  color: #468546;
+  cursor: pointer;
+  display: inline-block;
+  padding: 7px 20px;
+  text-align: center;
   text-decoration: none;
-  color: rgb(37, 7, 65);
+  transition: all 250ms;
+  border: 1px solid #7bda7b;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
 }
 
-#bdayadd {
-  text-decoration: none
+.birthday-list {
+  overflow: hidden;
+  margin-top: 20px;
 }
 
-button {
-  width: 80px;
-  height: 25px;
-  border-radius: 8px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: bold;
-  font-size: 14px;
-  background-color: rgb(127, 214, 255);
+.birthday-item {
+  width: 24%;
+  margin-right: 1%;
+  background: #ffffff96;
+  border-radius: 6px;
+  float: left;
 }
 
-button:hover {
-  transform: scale(1.1);
-  transition: 0.2s;
-}
-
-#bdaybut {
-  width: 200px;
-  height: 50px;
+.birthday-item a {
+  display: block;
+  padding: 40px 0;
+  text-align: center;
   font-size: 18px;
-  background-color: #654d7eb2;
-  border-radius: 8px;
-  text-decoration: none;
 }
-.userBtn{
-  padding-top: 20px;
+
+.birthday-item a img {
+  display: block;
+  margin: 0 auto 16px auto;
+  width: 80px;
+}
+
+.birthday-details {
+  font-size: 20px;
+}
+
+.birthday-details span {
+  font-weight: bold;
+  color: #a978f6;
+  display: inline-block;
 }

@@ -1,22 +1,31 @@
-<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-<h1>
-    <a href="/"><img src="images/balloons.png" width="50" valign="middle">Bimemo</a>
-</h1>
-<div class="box">
+<%- include('../header.ejs') %>
+
+<div class="content ">
     <h2>Ready to start building your Bimemo?</h2>
-    <p>SignUp</p>
-    <form id="signupform" method="POST" action="/signup">
-        <div class="labels">
-            <label>Username <input name="username" type="text" required></label>
-            <label>Email <input name="email" type="text" required></label>
-            <label>Password <input name="password" type="password" required></label>
-            <div class="userBtn"><button type="submit">SignUp</button></div>
+    <form method="POST" action="/signup">
+        <div class="form-row">
+            <label for="username">Username</label>
+            <input name="username" id="username" type="text" required>
+        </div>
+        <div class="form-row">
+            <label>Email</label>
+            <input name="email" type="text" required>
+        </div>
+        <div class="form-row">
+            <label>Password</label>
+            <input name="password" type="password" required>
+        </div>
+        <div class="form-row">
+            <label></label>
+            <button type="submit" class="btn">SignUp</button>
         </div>
     </form>
-    <p>Already signed up?<a href="/login">Login here!</a></p>
+    <p>Already signed up? <a href="/login">Login here!</a></p>
     <% if (typeof errorMessage !=="undefined" ) { %>
         <p>
             <%= errorMessage%>
         </p>
-        <% } %>
+    <% } %>
 </div>
+
+<%- include('../footer.ejs') %>

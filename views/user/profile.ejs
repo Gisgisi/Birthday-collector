@@ -1,32 +1,25 @@
 <%- include('../header.ejs') %>
 
-<h1>
-    <img src="/images/balloons.png" width="50" valign="middle">Bimemo
-</h1>
+<%- include('../navigation.ejs', { title: "Overview" }) %>
 
-<div class="profile">
-    <h2 id="prohead">Profile</h2>
-    <a href="/logout">
-        <button>Logout</button>
-    </a>
-</div>
+<div class="content">
+    <h2>Welcome <%= username %> !</h2>
+    <a class="add-profile btn" href="/profile/<%= username %>/new">Add a birthday</a>
 
-<hr>
-
-<div class="boxPro">
-    <p><strong>Welcome <%= username %> !</strong></p>
-    <button id="bdaybut"><a id="bdayadd" href="/profile/<%= username %>/addnew">Add a birthday</a></button>
-
-    <p>
-
+    <div class="birthday-list">
         <% birthdayList.forEach(item=> { %>
-            <a href="/profile/<%= item._id %>/details"><strong>
+            <div class="birthday-item">
+                <a href="/profile/<%= item._id %>/show">
+                    <% if ( item.gender == "Male" ) { %>
+                        <img src="/images/boy.png" alt="" />
+                    <% } else { %>
+                        <img src="/images/girl.png" alt="" />
+                    <% } %>
                     <%= item.name %>
-                </strong></a>
-            <% }); %>
-
-    </p>
+                </a>
+            </div>
+        <% }); %>
+    </div>
 </div>
-
 
 <%- include('../footer.ejs') %>
