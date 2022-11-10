@@ -14,6 +14,7 @@ const express = require("express");
 const ejs = require("ejs");
 
 const app = express();
+// Test
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
