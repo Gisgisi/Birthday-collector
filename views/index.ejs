@@ -1,7 +1,12 @@
-<h1>Birthday Collector</h1>
-<p>welcome to the place where you can keep the 
-    record of the most important day of you special ones.</p>
+<%- include('header.ejs') %>
 
-<h2>Click to create your collection!</h2>
-<button><a href="/signup">SignUp</a></button>
-<p>Already have a collection?<a href="/login">Login here!</a></p>
+<div class="content flex">
+    <p><strong>Welcome to your personal birthday collector!</strong></p>
+    <p><strong>The place where you can keep the</strong> </p>
+    <p> <strong>record of the most important day of you special ones.</strong></p>
+    <h2>Click to create your collection!</h2>
+    <a href="/signup" class="btn">SignUp</a>
+    <p>Already have a collection? <a href="/login">Login here!</a></p>
+</div>
+
+<%- include('footer.ejs') %>

@@ -1,0 +1,15 @@
+<%- include('../header.ejs') %>
+
+<%- include('../navigation.ejs', { title: "Detail for " + currentBirthday.name + "'s birthday" }) %>
+
+<div class="content center birthday-details">
+
+    <p>The birthday is on <span><%= currentBirthday.birthday.toLocaleDateString('en-US', {year: 'numeric', month: '2-digit', day: '2-digit'}) %></span></p>
+    <p><%=currentBirthday.name %> is a <span><%= currentBirthday.gender %></span> and is your <span><%= currentBirthday.relationship %></span></p>
+    <p>And here is what I have to do: <span><%= currentBirthday.note %></span></p>
+    <a class="btn" href="/profile/<%= currentBirthday.id %>/edit">update</a>
+    <a class="btn" href="/profile/<%= currentBirthday.id %>/delete" onclick="return confirm('Are you sure?')">delete</a>
+
+</div>
+
+<%- include('../footer.ejs') %>

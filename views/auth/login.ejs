@@ -1,12 +1,27 @@
-<h1>Let's get to your collection!</h1>
-<p>Login</p>
-<form method="post" action="/login">
-    <label>Username <input name="username" type="text" required></label>
-    <label>Password <input name="password" type="password" required></label>
-    <button type="submit">Login</button>
-</form>
-<% if (typeof errorMessage !=="undefined" ) { %>
-    <p>
-        <%= errorMessage%>
-    </p>
+<%- include('../header.ejs') %>
+
+<div class="content">
+    <h2>Let's get to your collection!</h2>
+    <form method="post" action="/login">
+        <div class="form-row">
+            <label>Username</label>
+            <input name="username" type="text" required>
+        </div>
+        <div class="form-row">
+            <label>Password</label>
+            <input name="password" type="password" required>
+        </div>
+        <div class="form-row">
+            <label></label>
+            <button type="submit" class="btn">Login</button>
+        </div>
+    </form>
+    <p>No account?<a href="/signup">Sign Up here!</a></p>
+    <% if ( typeof errorMessage !=="undefined" ) { %>
+        <p>
+            <%= errorMessage%>
+        </p>
     <% } %>
+</div>
+
+<%- include('../footer.ejs') %>

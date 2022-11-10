@@ -1,0 +1,51 @@
+<%- include('../header.ejs') %>
+
+<%- include('../navigation.ejs', { title: "Edit birthday" }) %>
+
+<div class="content">
+
+    <p>Make sure the birthday details are all up to date!</p>
+    <form method="POST" action="/profile/<%= currentBirthday.id%>/edit">
+        <div class="form-row">
+            <label>Name</label>
+            <input name="name" type="text" value="<%= currentBirthday.name %>">
+        </div>
+        <div class="form-row">
+            <label>Date</label>
+            <input name="birthday" type="date" value="<%= currentBirthday.birthday.toISOString().split('T')[0] %>">
+        </div>
+        <div class="form-row">
+            <label for="relationship" value="<%= currentBirthday.relationship %>">Relationship</label>
+            <select id="relationship" name="relationship">
+                <option>Spouse</option>
+                <option>Parent</option>
+                <option>Child</option>
+                <option>Sibling</option>
+                <option>Friend</option>
+                <option>Relative</option>
+                <option>Co-worker</option>
+                <option>Manager/boss</option>
+                <option>Acquaintances</option>
+            </select>
+        </div>
+        <div class="form-row">
+            <label for="gender" value="<%= currentBirthday.gender %>">Gender</label>
+            <select id="gender" name="gender">
+                <option>Female</option>
+                <option>Male</option>
+                <option>Neutral</option>
+            </select>
+        </div>
+        <div class="form-row">
+            <label>Note</label>
+            <input name="note" type="text" value="<%= currentBirthday.note %>">
+        </div>
+        <div class="form-row">
+            <label></label>
+            <button type="submit" class="btn">Save changes</button>
+        </div>
+    </form>
+
+</div>
+
+<%- include('../footer.ejs') %>
