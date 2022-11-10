@@ -1,12 +1,23 @@
-<h1>Let's get to your collection!</h1>
-<p>Login</p>
-<form method="post" action="/login">
-    <label>Username <input name="username" type="text" required></label>
-    <label>Password <input name="password" type="password" required></label>
-    <button type="submit">Login</button>
-</form>
-<% if (typeof errorMessage !=="undefined" ) { %>
-    <p>
-        <%= errorMessage%>
-    </p>
-    <% } %>
+<h1>
+    <a href="/"><img src="images/balloons.png" width="50" valign="middle">Bimemo</a>
+</h1>
+<div class="box">
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <h2>Let's get to your collection!</h2>
+    <p>Login</p>
+    <form method="post" action="/login">
+        <div class="labels">
+            <label>Username <input name="username" type="text" required></label>
+            <label>Password <input name="password" type="password" required></label>
+            <div class="userBtn">
+                <button type="submit">Login</button>
+            </div>
+        </div>
+    </form>
+    <p>No account?<a href="/signup">Sign Up here!</a></p>
+    <% if (typeof errorMessage !=="undefined" ) { %>
+        <p>
+            <%= errorMessage%>
+        </p>
+        <% } %>
+</div>

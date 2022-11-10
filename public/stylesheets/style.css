@@ -1,12 +1,126 @@
 body {
   padding: 50px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-image: url("/images/BG.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+
 }
 
-a {
-  color: #00b7ff;
+h1 {
+  padding: 10px;
+  margin: 0;
+  color: #250f3a;
+  text-shadow: -1px 0 rgb(160, 174, 184), 0 1px rgb(160, 174, 184),
+    1px 0 rgb(160, 174, 184), 0 -1px rgb(160, 174, 184);
+  font-size: 42px;
 }
 
 h2 {
-  color: #00b7ff;
+  color: rgb(0, 132, 194);
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+hr {
+
+  margin: 0;
+  width: 1300px;
+}
+
+.profile {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 1000px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#prohead {
+  color: aliceblue;
+  font-size: 32px;
+}
+
+
+.box {
+  padding: 40px;
+  background: rgba(220, 225, 230, 0.651);
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.boxPro {
+  margin-top: 10px;
+  padding: 30px;
+  background: rgba(220, 225, 230, 0.651);
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.labels{
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+width: 30px;
+}
+
+.newForm {
+  padding: 40px;
+  background: rgba(220, 225, 230, 0.493);
+  width: 40%;
+}
+
+
+#singupform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(37, 7, 65);
+}
+
+#bdayadd {
+  text-decoration: none
+}
+
+button {
+  width: 80px;
+  height: 25px;
+  border-radius: 8px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: rgb(127, 214, 255);
+}
+
+button:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+
+#bdaybut {
+  width: 200px;
+  height: 50px;
+  font-size: 18px;
+  background-color: #654d7eb2;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.userBtn{
+  padding-top: 20px;
 }

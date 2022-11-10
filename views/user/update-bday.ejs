@@ -1,4 +1,10 @@
-<h1>Edit</h1>
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+<h1><a href="/"><img src="/images/balloons.png" width="50" valign="middle">Bimemo</a></h1>
+<div class="pro"><h2>Edit</h2>
+<a href="/logout">
+    <button>Logout</button>
+</a>
+</div>
 <p>Make sure the birthday details are all up to date!</p>
 <form method="POST" action="/profile/<%= currentBirthday.id%>/edit">
     <label>Name <input name="name" type="text" value="<%= currentBirthday.name %> "></label>
